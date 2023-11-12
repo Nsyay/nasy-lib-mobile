@@ -4,6 +4,41 @@ Nama : Ayu Siti Nasya N
 NPM : 2206025426
 Kelas : PBP A
 
+## Tugas 8
+1. `Navigator.push()` dan `Navigator.pushReplacement()` adalah metode pada flutter untuk menavigasi halaman pada aplikasi. Perbedaannya yaitu :
+* `Navigator.push()` digunakan untuk menumpuk halaman baru pada halaman yang sudah ada, sehingga jumlah halaman bertambah. Untuk kembali ke halam sebelumnya dapat memanggil `Navigator.pop()` contoh penggunaan:
+```
+// Menggunakan Navigator.push() untuk menambahkan halaman baru
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => BookView()),
+);
+```
+* `Navigator.pushReplacement()` digunakan untuk mengganti halaman sekarang dengan halaman baru, sehingga jumlah halaman tidak bertambah. Ketika ditekan tombol kembali pada halaman baru, maka akan beralih ke halaman sebelumnya. Contoh penggunaan:
+```
+// Menggunakan Navigator.pushReplacement() untuk menggantikan halaman saat ini
+Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(builder: (context) => BookView()),
+);
+```
+
+2. Layout widget adalah widget yang digunakan untuk mengatur tata letak elemen-elemen pada aplikasi yang sedang kita buat. Beberapa layout widget yang terdapat pada flutter yaitu :
+* `Container` -> sebagai wadah untuk satu atau lebih widget
+* `Row` -> digunakan untuk mengatur elemen yang berdampingan secara horizontal
+* `Column` -> digunakan untuk mengatur elemen yang berdampingan secara vertikal
+* `ListView` -> untuk menampilkan daftar widget yang banyak atau ingin melakukan looping suatu list
+* `GridView` -> untuk menampilkan daftar widget dalam susunan grid
+
+3. Elemen input yang saya gunakan pada form tambah buku yaitu :
+* `TextFormField` -> untuk menampung input yang berupa teks atau string dari pengguna. Saya menggunakan `TextFormField` karena mendukung validasi input untuk memastikan bahwa input sesuai dengan tipe data dan tidak kosong
+* `ElevatedButton` -> sebagai tombol untuk menyimpan data yang sudah dimasukkan di form
+* `AlertDialog` -> sebagai respons dari interaksi pengguna yaitu dengan menampilkan apa yang baru saja diinput oleh pengguna pada form
+
+4. _Clean architecture_ adalah suatu metode dalam pengembangan aplikasi yang memisahkan program menjadi beberapa bagian dengan batasan yang jelas. Pada flutter, penerapan _Clean architecture_ yaitu dengan mengolah struktur proyek menjadi lebih terorganisir dengan baik. Caranya yaitu dengan memisahkan dan mengelompokkan program dengan suatu batasan tertentu. Seperti misalnya yang saya terapkan pada aplikasi saya ini yaitu memisahkan file dart widget buatan dengan tampilan layar. _Clean architecture_ digunakan agar kode lebih mudah dikembangkan, dirawat, dan diuji.
+
+5. Cara saya mengimplementasikan tugas 8 ini yaitu pertama, saya membuat halaman form beserta semua elemen inputnya (text field dan button) yang akan digunakan pengguna untuk menambah buku sebagai implementasi fitur 'Tambah Buku'. Dalam pembuatan halaman form juga saya menerapkan validasi input untuk memastikan bahwa yang diinput pengguna sesuai dengan tipe data dan tidak kosong. Kemudian saya membuat drawer sebagai navigasi selain navigasi dari home page. Drawer yang saya buat menggunakan `ListTile` dengan routing halaman `Home Page`, `Book Form`, dan `Book View`. Setelah itu saya mengerjakan soal bonus yaitu membuat halaman baru yang menampilkan semua item yang sebelumnya sudah diinput di form. Disini pertama saya membuat Class baru bernama `Book`, sehingga ketika pengguna input form, akan langsung membuat objek `Book` baru. Setelah itu, objek tersebut saya masukkan ke dalam list. pada halaman `Book View` saya looping semua buku yang ada dan menampilkannya dengan menggunakan `ListView.builder`. Terakhir, saya menerapkan _Clean architecture_ pada pengembangan aplikasi saya ini dengan mengelompokkan program yang merupakan halaman atau widget.
+
 ## Tugas 7
 1. _Stateless Widget_ pada flutter yaitu widget statis yang berarti tidak pernah berubah dan tidak bisa diinteraksi oleh pengguna. Contoh dari _stateless widget_ yaitu `Text`, `Icon`, dan `IconButton`. Sedangkan _Stateful Widget_ pada flutter yaitu widget dinamis yang bisa berubah apabila mendapat perlakuan dari interaksi user atau ketika menerima data. Contoh dari _stateful widget_ yaitu `TextField`, `Checkbox`, `Radio`
 

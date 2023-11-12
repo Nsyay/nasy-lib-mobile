@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:nasy_lib_mobile/widgets/drawerlib.dart';
+import 'package:nasy_lib_mobile/widgets/book_card.dart';
+
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -24,9 +26,12 @@ class MyHomePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text(
               'Nasy Lib',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             ),
             backgroundColor: Colors.pinkAccent,
+            foregroundColor: Colors.white,
           ),
+          drawer: const LeftDrawer(),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(10),
@@ -37,7 +42,7 @@ class MyHomePage extends StatelessWidget {
                     child: Text(
                       'Nasy Library',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.pink),
                     ),
                   ),
                   GridView.count(
@@ -59,62 +64,3 @@ class MyHomePage extends StatelessWidget {
     }
 }
 
-class BookMenu {
-  final String name;
-  final IconData icon;
-
-  BookMenu(this.name, this.icon);
-}
-
-class BookCard extends StatelessWidget {
-  final BookMenu item;
-
-  const BookCard(this.item, {super.key}); // Constructor
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: getRandomColor(),
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                backgroundColor: Colors.pinkAccent,
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-Color getRandomColor() {
-  final Random random = Random();
-  return Color.fromARGB(
-    255,
-    random.nextInt(256),
-    random.nextInt(256),
-    random.nextInt(256),
-  );
-}
