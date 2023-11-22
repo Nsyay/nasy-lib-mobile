@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nasy_lib_mobile/screens/list_product.dart';
 import 'package:nasy_lib_mobile/screens/menu.dart';
 import 'package:nasy_lib_mobile/screens/book_form.dart';
-import 'package:nasy_lib_mobile/screens/book_view.dart';
-
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -50,16 +49,16 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.shelves),
+            leading: const Icon(Icons.shopping_basket),
             title: const Text('Collection'),
             onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BookView(books: Book.allBooks,),
-                  ));
+                // Route menu ke halaman produk
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const BookPage()),
+                );
             },
-          ),
+        ),
           ListTile(
             leading: const Icon(Icons.library_add),
             title: const Text('Tambah Buku'),
@@ -72,6 +71,7 @@ class LeftDrawer extends StatelessWidget {
               ));
             },
           ),
+          
         ],
       ),
     );
