@@ -110,7 +110,7 @@ class _BookFormState extends State<BookForm> {
                       ),
                       onChanged: (String? value) {
                         setState(() {
-                          _description = value!;
+                          _author = value!;
                         });
                       },
                       validator: (String? value) {
@@ -132,7 +132,7 @@ class _BookFormState extends State<BookForm> {
                       ),
                       onChanged: (String? value) {
                         setState(() {
-                          _description = value!;
+                          _genre = value!;
                         });
                       },
                       validator: (String? value) {
@@ -184,7 +184,6 @@ class _BookFormState extends State<BookForm> {
                                 'author': _author,
                                 'genre': _genre, 
                                 'description': _description,
-                                // TODO: Sesuaikan field data sesuai dengan aplikasimu
                             }));
                             if (response['status'] == 'success') {
                               ScaffoldMessenger.of(context)
